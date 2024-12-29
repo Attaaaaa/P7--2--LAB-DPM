@@ -50,7 +50,7 @@ const ProfileScreen = () => {
         return (
             <PaperProvider>
                 <ThemedView style={styles.loadingContainer}>
-                    <ActivityIndicator animating={true} />
+                    <ActivityIndicator animating={true} color="#ffffff" />
                 </ThemedView>
             </PaperProvider>
         );
@@ -59,7 +59,7 @@ const ProfileScreen = () => {
     return (
         <PaperProvider>
             <ImageBackground
-                source={require('@/assets/images/favicon1.png')} 
+                source={require('@/assets/images/omak.jpg')} 
                 style={styles.container}
                 resizeMode="cover"
             >
@@ -83,7 +83,7 @@ const ProfileScreen = () => {
                             </Button>
                         </View>
                     ) : (
-                        <ThemedText>No profile data available</ThemedText>
+                        <ThemedText style={styles.noProfileText}>No profile data available</ThemedText>
                     )}
                     <Portal>
                         <Dialog visible={dialogVisible} onDismiss={() => setDialogVisible(false)}>
@@ -108,23 +108,26 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: '#121212',
     },
     container: {
         flex: 1,
-        justifyContent: 'center', 
+        justifyContent: 'center',
+        backgroundColor: '#121212',
     },
     contentContainer: {
         flex: 1,
         padding: 20,
-        backgroundColor: 'rgba(255, 255, 255, 0.8)', 
+        backgroundColor: 'rgba(18, 18, 18, 0.9)',
         marginHorizontal: 20,
         alignItems: 'center',
         justifyContent: 'center',
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 4 },
-        shadowOpacity: 0.2,
+        shadowOpacity: 0.5,
         shadowRadius: 6,
-        elevation: 5, // For Android shadow
+        elevation: 8,
+        borderRadius: 10,
     },
     profileContainer: {
         alignItems: 'center',
@@ -137,34 +140,34 @@ const styles = StyleSheet.create({
     username: {
         fontSize: 26,
         fontWeight: 'bold',
-        color: '#333',
+        color: '#ffffff',
     },
     email: {
         fontSize: 18,
-        color: '#666',
+        color: '#bbbbbb',
         marginTop: 8,
     },
     infoCard: {
         width: '100%',
-        backgroundColor: '#fff',
+        backgroundColor: '#1e1e1e',
         borderRadius: 10,
         padding: 18,
         marginBottom: 16,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.1,
+        shadowOpacity: 0.3,
         shadowRadius: 4,
-        elevation: 3, 
+        elevation: 3,
     },
     label: {
         fontSize: 14,
-        color: '#888',
+        color: '#aaaaaa',
         marginBottom: 6,
     },
     value: {
         fontSize: 18,
         fontWeight: '600',
-        color: '#333',
+        color: '#ffffff',
     },
     logoutButton: {
         marginTop: 24,
@@ -172,6 +175,11 @@ const styles = StyleSheet.create({
         borderRadius: 25,
         paddingVertical: 10,
         paddingHorizontal: 20,
+    },
+    noProfileText: {
+        color: '#bbbbbb',
+        fontSize: 16,
+        marginTop: 20,
     },
 });
 
